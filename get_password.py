@@ -1,10 +1,15 @@
 import os
 import pyotp
 
+from dotenv import load_dotenv
 
-def get_password(args):
+
+load_dotenv()  # 加载 .env 文件
+
+
+def get_password():
     # 配置
-    secret_key = os.environ.get('SECRET_KEY')
+    secret_key = os.getenv('SECRET_KEY')
     algorithm = 'sha256'
     digits = 6
     interval = 30  # 有效期
