@@ -17,8 +17,10 @@ def task():
 
         pyautogui.write(get_password(), interval=0.25)
         pyautogui.keyDown('enter')
+        print('执行成功')
     except Exception as e:
         print(e)
+        print('执行异常或无需执行')
 
 
 task()
