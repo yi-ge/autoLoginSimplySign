@@ -1,9 +1,10 @@
+import os
 import pyotp
 
 
 def get_password(args):
     # 配置
-    secret_key = ''
+    secret_key = os.environ.get('SECRET_KEY')
     algorithm = 'sha256'
     digits = 6
     interval = 30  # 有效期
