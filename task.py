@@ -1,12 +1,22 @@
+import os
+import logging
 import pyautogui
 
 from get_password import get_password
 
 pyautogui.PAUSE = 2.5  # PyAutoGUI函数增加延迟为2.5秒：
 
+# 设置当前执行目录为脚本所在目录
+script_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_dir)
+
+# 配置日志记录
+logging.basicConfig(filename='log.txt', level=logging.INFO,
+                    format='%(asctime)s:%(levelname)s:%(message)s')
+
 
 def task():
-    print("执行定时任务")
+    logging.info("执行定时任务")
     try:
         button_x, button_y = pyautogui.locateCenterOnScreen(
             '1.png', confidence=0.9, grayscale=True)
@@ -17,10 +27,10 @@ def task():
 
         pyautogui.write(get_password(), interval=0.25)
         pyautogui.keyDown('enter')
-        print('执行成功')
+        logging.info('执行成功')
     except Exception as e:
-        print(e)
-        print('执行异常或无需执行')
+        logging.error("发生错误：{}".format(e))
+        logging.info('执行异常或无需执行')
 
 
 task()
