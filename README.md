@@ -15,3 +15,7 @@ pythonw.exe
 ```powershell
 D:\Project\autoLoginSimplySign\main.py
 ```
+
+## 其他说明
+
+截图是win11的，在win10下或者不好用的时候重新截图即可。
